@@ -11,21 +11,79 @@ body {
     height: 100%;
 }
 
-
-
 main {
     width: 100%;
     height: 100%;
     background: #000;
-    color: rgb(153, 255, 0);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 5vw;
+    color: white;
+    padding: 5vw
 }
 
-h1 {
-    width: 80%;
-    font-size: 3vw;
-    /* text-align: center; */
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+
+}
+
+@keyframes border-rotate {
+    to {
+        --angle: 0deg
+    }
+
+    from {
+        --angle: 360deg
+    }
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 80%;
+    border-radius: 50px;
+    overflow: hidden;
+    /* padding: 10px; */
+   border:0px solid transparent;
+    transition: all 1s ease;
+    animation-play-state: paused;
+    color:white;
+}
+
+.card:hover  {
+    box-shadow: 0 0 100px #bd9a11;
+    border-width:10px;
+    background: linear-gradient(black) content-box, conic-gradient(from var(--angle), black, #E0BB74, black) border-box;
+    animation: border-rotate 2s infinite linear;
+    animation-play-state: running;
+    color:#E0BB74;
+    text-shadow:0 0 10px #bd9a11;
+
+
+}
+
+img {
+    height: 90%;
+    width: 100%;
+    object-fit: cover;
+    padding: 20px;
+  
+}
+
+h2 {
+
+    font-size: clamp(20px, 3vw, 50px);
+    text-transform: uppercase;
+ 
+}
+
+p {
+    font-size: clamp(18px, 3vw, 30px);
+    padding-bottom:10px;
+   
+
 }
