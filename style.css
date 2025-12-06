@@ -9,17 +9,10 @@ html,
 body {
     width: 100%;
     height: 100%;
+    
 }
-
-main {
-    width: 100%;
-    height: 100%;
-    background: #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    padding: 5vw
+body{
+    overflow:hidden;
 }
 
 @property --angle {
@@ -29,18 +22,40 @@ main {
 
 }
 
+main {
+    width: 100%;
+    height: 100%;
+    /* background: repeating-conic-gradient(red,black); */
+    /* background: repeating-conic-gradient(from 45deg at 50% 50%, brown 0deg 10deg, darkgoldenrod 10deg 20deg, chocolate 20deg 30deg); */
+    /* background: repeating-conic-gradient(red,black,red,black,red,black,red,black,red,black,red,black,red,black,red,black,red,black,red,black,red,black,red,black,red,black,red); */
+    /* background: conic-gradient(white,white,black,white,black,white,white,black,white,black,white,white,black,white,black,white,white); */
+    background: repeating-conic-gradient(from 10deg at 50% 50%, white 10deg 30deg,black 50deg 60deg );
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 5vw;
+    transition:all 10s linear;
+    transform: scale(5) rotate(var(--angle)); 
+    
+}
+main:hover {
+    animation:border-rotate 5s linear infinite;
+
+}
+
+
 @keyframes border-rotate {
     to {
-        --angle: 0deg
+        --angle: 360deg;
     }
 
     from {
-        --angle: 360deg
+        --angle: 0deg;
     }
 }
 
 .card {
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -55,7 +70,7 @@ main {
 }
 
 .card:hover  {
-    box-shadow: 0 0 100px #bd9a11;
+    /* box-shadow: 0 0 100px #bd9a11; */
     border-width:10px;
     background: linear-gradient(black) content-box, conic-gradient(from var(--angle), black, #E0BB74, black) border-box;
     animation: border-rotate 2s infinite linear;
